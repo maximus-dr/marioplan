@@ -6,6 +6,9 @@ export default function ProjectList() {
     <div className="project-list section">
       <ProjectSummary />
       <ProjectSummary />
+      <ProjectSummary />
+      <ProjectSummary />
+      <ProjectSummary />
     </div>
   )
 }
