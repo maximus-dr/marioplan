@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 
-function Navbar() {
+function Navbar(props) {
+
   return (
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
@@ -18,7 +19,7 @@ function Navbar() {
 
 const mapStateToProps = (state) => {
   return {
-    
+    auth: state.firebase.auth
   }
 };
 
