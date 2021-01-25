@@ -20,6 +20,7 @@ const store = createStore(rootReducer,
 );
 
 const reactReduxFiresbaseProps = {
+  store: store,
   firebase,
   config: firebaseConfig,
   dispatch: store.dispatch,
