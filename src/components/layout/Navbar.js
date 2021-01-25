@@ -6,12 +6,14 @@ import SignedOutLinks from './SignedOutLinks'
 
 function Navbar(props) {
 
+  const { auth } = props;
+  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+
   return (
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
         <Link to="/" className="brand-logo">MarioPlan</Link>
-        <SignedInLinks />
-        <SignedOutLinks />
+        { links }
       </div>
     </nav>
   )
