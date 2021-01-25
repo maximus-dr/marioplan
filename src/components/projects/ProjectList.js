@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import ProjectSummary from './ProjectSummary'
 
 export default function ProjectList({projects}) {
@@ -6,7 +7,9 @@ export default function ProjectList({projects}) {
     <div className="project-list section">
       { projects && projects.map(project => {
         return (
-          <ProjectSummary project={project} key={project.id} />
+          <Link to={`/project/${project.id}`} key={project.id}>
+            <ProjectSummary project={project} key={project.id} />
+          </Link>  
         );
       }) }
     </div>
