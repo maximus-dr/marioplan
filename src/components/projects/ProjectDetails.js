@@ -3,15 +3,18 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { Redirect } from 'react-router-dom';
+import moment from 'moment';
+
 
 function ProjectDetails(props) {
 
   const { project, auth } = props;
+  const date = moment(project.createdAt.toDate()).calendar();
 
   if (!auth.uid) {
     return <Redirect to="/signin" />
   }
-
+  
   if (project) {
     return (
       <div className="container section project-details">
@@ -23,7 +26,7 @@ function ProjectDetails(props) {
               <p>
                 Posted by {project.authorFirstName} {project.authorLastName}
               </p>
-              <div>2nd Semptember, 2am</div>
+              <div>{ date }</div>
             </div>
           </div>
         </div>
