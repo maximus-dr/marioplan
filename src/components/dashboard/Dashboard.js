@@ -8,7 +8,7 @@ import Notifications from './Notifications';
 
 
 function Dashboard(props) {
-  console.log(props);
+
   const { projects, auth } = props;
 
   if (!auth.uid) {
