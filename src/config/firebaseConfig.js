@@ -8,7 +8,9 @@ const firebaseConfig = {
   projectId: "fir-ceb07",
   storageBucket: "fir-ceb07.appspot.com",
   messagingSenderId: "444339094743",
-  appId: "1:444339094743:web:e36a03255044c05b419c92"
+  appId: "1:444339094743:web:e36a03255044c05b419c92",
+  userProfile: 'users-marioplan',
+  useFirestoreForProfile: true
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
