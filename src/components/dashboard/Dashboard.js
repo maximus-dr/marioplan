@@ -9,7 +9,7 @@ import Notifications from './Notifications';
 
 function Dashboard(props) {
 
-  const { projects, auth } = props;
+  const { projects, auth, notifications } = props;
 
   if (!auth.uid) {
     return <Redirect to="/signin" />
@@ -22,7 +22,7 @@ function Dashboard(props) {
           <ProjectList projects={projects} />
         </div>
         <div className="col s12 m5 offset-m1">
-          <Notifications />
+          <Notifications notifications={ notifications } />
         </div>
       </div>
     </div>
@@ -32,13 +32,15 @@ function Dashboard(props) {
 const mapStateToProps = (state) => {
   return {
     projects: state.firestore.ordered['projects-marioplan'],
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    notifications: state.firestore.ordered['notifications-marioplan']
   }
 };
 
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'projects-marioplan' }
+    { collection: 'projects-marioplan' },
+    { collection: 'notifications-marioplan' }
   ])
 )(Dashboard);
