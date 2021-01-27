@@ -40,7 +40,7 @@ const mapStateToProps = (state) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'projects-marioplan' },
-    { collection: 'notifications-marioplan' }
+    { collection: 'projects-marioplan', orderBy: ['createdAt', 'desc'] },
+    { collection: 'notifications-marioplan', orderBy: ['time', 'desc'] }
   ])
 )(Dashboard);
